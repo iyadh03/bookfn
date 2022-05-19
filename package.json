@@ -1,0 +1,41 @@
+{
+  "name": "bookfn-dev",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "buffer": "^6.0.3",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongo": "^0.1.0",
+    "mongodb": "^4.1.4",
+    "mongoose": "^6.0.12",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.3",
+    "nodemailer": "^6.7.0",
+    "nodemon": "^2.0.15",
+    "sharp": "^0.29.3",
+    "socket.io": "^4.5.1",
+    "stripe": "^9.1.0",
+    "swagger-jsdoc": "^6.0.0",
+    "swagger-node-express": "~2.0",
+    "swagger-ui-express": "^4.1.6"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedBANNOUR1997/BookFN-dev-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://github.com/ahmedBANNOUR1997/BookFN-dev-node#readme",
+  "description": ""
+}

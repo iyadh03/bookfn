@@ -1,0 +1,918 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0", 
+      "title": "Book Fanatic Swagger",
+      "contact" : {
+        "name" : "Book Fanatic Dev",
+        "email" : "bookfn1337@gmail.com"
+    }
+    },
+    "host": "localhost:3000/api",
+    "basePath": "/",
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+        "paths": {
+            "/getuser": {
+                "get": {
+                  "tags": ["Users"],
+                  "summary": "Get User",
+                  "responses": {
+                    "200": {
+                      "description": "OK"
+                      
+                    }
+                  }
+                }
+              },
+              "/users": {
+                "post": {
+                  "tags": ["Users"],
+                  "summary": "Create new User",
+                  "description": "Create new User",
+                  "parameters": [
+                    {
+                      "name": "Users",
+                      "in": "body",
+                      "description": "User that we want to create",
+                      "schema": {
+                        "$ref": "#/definitions/Users"
+                      }
+                    }
+                  ],
+                  "produces": ["application/json"],
+                  "responses": {
+                    "200": {
+                      "description": "New User is created",
+                      "schema": {
+                        "$ref": "#/definitions/Users"
+                      }
+                    }
+                  }
+                }
+              },
+              "/login": {
+                "post": {
+                  "tags": ["Users"],
+                  "summary": "Login",
+                  "description": "Login by typing Email and pwd",
+                  "parameters": [
+                    {
+                      "name": "Users",
+                      "in": "body",
+                      "description": "Login",
+                      "schema": {
+                        "$ref": "#/definitions/Users"
+                      }
+                    }
+                  ],
+                  "produces": ["application/json"],
+                  "responses": {
+                    "200": {
+                      "description": "Logged in"
+                    }
+                  }
+                }
+              },
+              "/getuserid": {
+                "post": {
+                  "tags": ["Users"],
+                  "summary": "Get user id by name",
+                  "description": "Type the user name to get his ID ",
+                  "parameters": [
+                    {
+                      "name": "Users",
+                      "in": "body",
+                      "description": "Get user id",
+                      "schema": {
+                        "$ref": "#/definitions/Users"
+                      }
+                    }
+                  ],
+                  "produces": ["application/json"],
+                  "responses": {
+                    "200": {
+                      "description": "User"
+                    }
+                  }
+                }
+              },
+              "/getuserbyid": {
+                "post": {
+                  "tags": ["Users"],
+                  "summary": "Get user by his id",
+                  "description": "Type the user ID",
+                  "parameters": [
+                    {
+                      "name": "userid",
+                      "in": "body",
+                      "description": "Get user info",
+                      "schema": {
+                        "$ref": "#/definitions/userid"
+                      }
+                    }
+                  ],
+                  "produces": ["application/json"],
+                  "responses": {
+                    "200": {
+                      "description": "User"
+                    }
+                  }
+                }
+              },
+              "/updateuser": {
+                "patch": {
+                  "tags": ["Users"],
+                  "summary": "Fetch user and Update his info by his id",
+                  "description": "Update user",
+                  "parameters": [
+                    {
+                      "name": "Users",
+                      "in": "body",
+                      "description": "add user id to update",
+                      "schema": {
+                        "$ref": "#/definitions/Users"
+                      }
+                    }
+                  ],
+                  "produces": ["application/json"],
+                  "responses": {
+                    "200": {
+                      "description": "User"
+                    }
+                  }
+                }
+              },
+              "/addabon": {
+                "post": {
+                  "tags": ["Users"],
+                  "summary": "increment subscribers number to user",
+                  "description": "add subscribers",
+                  "parameters": [
+                    {
+                      "name": "userid",
+                      "in": "body",
+                      "description": "add user id to update",
+                      "schema": {
+                        "$ref": "#/definitions/userid"
+                      }
+                    }
+                  ],
+                  "produces": ["application/json"],
+                  "responses": {
+                    "200": {
+                      "description": "User"
+                    }
+                  }
+                }
+              },
+              "/deleteabon": {
+                "post": {
+                  "tags": ["Users"],
+                  "summary": "decrement subscribers number from user",
+                  "description": "delete 1 subscriber",
+                  "parameters": [
+                    {
+                      "name": "userid",
+                      "in": "body",
+                      "description": "add user id to update",
+                      "schema": {
+                        "$ref": "#/definitions/userid"
+                      }
+                    }
+                  ],
+                  "produces": ["application/json"],
+                  "responses": {
+                    "200": {
+                      "description": "User"
+                    }
+                  }
+                }
+              },
+              "/isabon": {
+                "post": {
+                  "tags": ["Users"],
+                  "summary": "check who subscribed to this user",
+                  "description": "check subscribers",
+                  "parameters": [
+                    {
+                      "name": "userid",
+                      "in": "body",
+                      "description": "add user id to check",
+                      "schema": {
+                        "$ref": "#/definitions/userid"
+                      }
+                    }
+                  ],
+                  "produces": ["application/json"],
+                  "responses": {
+                    "200": {
+                      "description": "User"
+                    }
+                  }
+                }
+              },
+              "/listbooksf": {
+                "post": {
+                  "tags": ["Users"],
+                  "summary": "show favourite books",
+                  "description": "show books liked by this user",
+                  "parameters": [
+                    {
+                      "name": "userid",
+                      "in": "body",
+                      "description": "add user id",
+                      "schema": {
+                        "$ref": "#/definitions/userid"
+                      }
+                    }
+                  ],
+                  "produces": ["application/json"],
+                  "responses": {
+                    "200": {
+                      "description": "User"
+                    }
+                  }
+                }
+              },
+          "/allBooks": {
+            "get": {
+              "tags": ["Books"],
+              "summary": "Get all books",
+              "responses": {
+                "200": {
+                  "description": "OK",
+                  "schema": {
+                    "$ref": "#/definitions/Book"
+                  }
+                }
+              }
+            }
+          },
+          "/addBook": {
+            "post": {
+              "tags": ["Books"],
+              "summary": "Create new Book",
+              "description": "Create new Book",
+              "parameters": [
+                {
+                  "name": "Book",
+                  "in": "body",
+                  "description": "Book that we want to create",
+                  "schema": {
+                    "$ref": "#/definitions/Book"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "description": "New Book is created",
+                  "schema": {
+                    "$ref": "#/definitions/Book"
+                  }
+                }
+              }
+            }
+          },
+          "/showBook": {
+            "post": {
+              "tags": ["Books"],
+              "summary": "show Book",
+              "description": "show Book by its id",
+              "parameters": [
+                {
+                  "name": "Book",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/Bookid"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/Bookid"
+                  }
+                }
+              }
+            }
+          },
+          "/updateBook": {
+            "post": {
+              "tags": ["Books"],
+              "summary": "update Book",
+              "description": "update Book by its id",
+              "parameters": [
+                {
+                  "name": "Book",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/Bookid"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/Bookid"
+                  }
+                }
+              }
+            }
+          },
+          "/deleteBook": {
+            "post": {
+              "tags": ["Books"],
+              "summary": "delete Book",
+              "description": "delete Book by its id",
+              "parameters": [
+                {
+                  "name": "Book",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/Bookid"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/Bookid"
+                  }
+                }
+              }
+            }
+          },
+          "/likeBook": {
+            "post": {
+              "tags": ["Books"],
+              "summary": "show list of likes of the Book",
+              "description": "show Book by its id",
+              "parameters": [
+                {
+                  "name": "Book",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/Bookid"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/Bookid"
+                  }
+                }
+              }
+            }
+          },
+          "/addLikesBook": {
+            "post": {
+              "tags": ["Books"],
+              "summary": "add like to a Book",
+              "description": "add like to a Book by its id",
+              "parameters": [
+                {
+                  "name": "Book",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/Bookid"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/Bookid"
+                  }
+                }
+              }
+            }
+          },
+          "/deleteLikesBook": {
+            "post": {
+              "tags": ["Books"],
+              "summary": "delete likes from a Book",
+              "description": "delete likes from a Book by its id",
+              "parameters": [
+                {
+                  "name": "Book",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/Bookid"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/Bookid"
+                  }
+                }
+              }
+            }
+          },
+          "/viewsBook": {
+            "post": {
+              "tags": ["Books"],
+              "summary": "add 1 view to Book",
+              "description": "add 1 view to Book by its id",
+              "parameters": [
+                {
+                  "name": "Book",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/Bookid"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/Bookid"
+                  }
+                }
+              }
+            }
+          },
+          "/allPlaylists": {
+            "get": {
+              "tags": ["Playlists"],
+              "summary": "Get all playlists",
+              "responses": {
+                "200": {
+                  "description": "OK"
+                
+                }
+              }
+            }
+          },
+          "/addplaylist": {
+            "post": {
+              "tags": ["Playlists"],
+              "summary": "add playlist",
+              "description": "add playlist",
+              "parameters": [
+                {
+                  "name": "Playlist",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/Playlist"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/Playlist"
+                  }
+                }
+              }
+            }
+          },
+          "/showplaylist": {
+            "post": {
+              "tags": ["Playlists"],
+              "summary": "show playlist",
+              "description": "show playlist",
+              "parameters": [
+                {
+                  "name": "Playlist",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/playlistid"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/playlistid"
+                  }
+                }
+              }
+            }
+          },
+          "/deletePlaylist": {
+            "post": {
+              "tags": ["Playlists"],
+              "summary": "delete playlist",
+              "description": "delete playlist by its id",
+              "parameters": [
+                {
+                  "name": "Playlist",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/playlistid"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/playlistid"
+                  }
+                }
+              }
+            }
+          },
+          "/addLikesPlaylist": {
+            "post": {
+              "tags": ["Playlists"],
+              "summary": "add like to a playlist",
+              "description": "add like to a playlist by its id",
+              "parameters": [
+                {
+                  "name": "Playlist",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/playlistid"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/playlistid"
+                  }
+                }
+              }
+            }
+          },
+          "/deleteLikesPlaylist": {
+            "post": {
+              "tags": ["Playlists"],
+              "summary": "delete playlist",
+              "description": "delete playlist by its id",
+              "parameters": [
+                {
+                  "name": "Playlist",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/playlistid"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/playlistid"
+                  }
+                }
+              }
+            }
+          },
+          "/viewsPlaylist": {
+            "post": {
+              "tags": ["Playlists"],
+              "summary": "add 1 view to a playlist",
+              "description": "add 1 view to a playlist by its id",
+              "parameters": [
+                {
+                  "name": "Playlist",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/playlistid"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/playlistid"
+                  }
+                }
+              }
+            }
+          },"/messagerie/": {
+            "get": {
+              "tags": ["Chat"],
+              "summary": "Get all Conversations",
+              "responses": {
+                "200": {
+                  "description": "OK"
+                
+                }
+              }
+            }
+          },
+          "/messagerie/tout-messages": {
+            "get": {
+              "tags": ["Chat"],
+              "summary": "Get all Messages",
+              "responses": {
+                "200": {
+                  "description": "OK"
+                
+                }
+              }
+            }
+          },
+          "/messagerie/mes-conversations": {
+            "post": {
+              "tags": ["Chat"],
+              "summary": "get conversation by userid",
+              "description": "get conversation by user id",
+              "parameters": [
+                {
+                  "name": "Chat",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/chatid"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/chatid"
+                  }
+                }
+              }
+            }
+          },
+          "/messagerie/mes-messages": {
+            "post": {
+              "tags": ["Chat"],
+              "summary": "get conversation by userid",
+              "description": "get conversation by user id",
+              "parameters": [
+                {
+                  "name": "Chat",
+                  "in": "body",
+                  "schema": {
+                    "$ref": "#/definitions/chatid"
+                  }
+                }
+              ],
+              "produces": ["application/json"],
+              "responses": {
+                "200": {
+                  "schema": {
+                    "$ref": "#/definitions/chatid"
+                  }
+                }
+              }
+            }
+          }
+
+        },
+          "definitions": {
+            "Book": {
+              "required": ["title", "description", "image","category","file"],
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "image": {
+                  "type": "string"
+                },
+                "category": {
+                  "type": "string"
+                },
+                "file": {
+                  "type":"string"
+                },
+                "like": {
+                  "type": "array",
+                  "user_id": {
+                    "type": "string"
+                  }
+                },
+                "NbVue":{
+                  "type":"integer"
+                },
+            "Books": {
+              "type": "array",
+              "$ref": "#/definitions/Book"
+            }
+          }
+        },"Users":{
+            "required": ["name", "email","pwd"],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "pwd": {
+                  "type": "string"
+                },
+                "emailCode": {
+                  "type": "string"
+                },
+                "emailEtat": {
+                  "type":"string"
+                },
+                "token": {
+                    "type":"string"
+                },
+                "img": {
+                    "type":"string"
+                },
+                "tel": {
+                    "type":"string"
+                },
+                "abonne": {
+                  "type": "array",
+                  "user_id": {
+                    "type": "string"
+                  }
+                },
+                "abonnement": {
+                    "type": "array",
+                    "user_id": {
+                      "type": "string"
+                    }
+                },
+                "isAdmin":{
+                  "type":"boolean"
+                },
+                "favBook": {
+                    "type": "array",
+                    "Book_id": {
+                      "type": "string"
+                    }
+                },
+                "favPlaylist": {
+                    "type": "array",
+                    "playlist_id": {
+                      "type": "string"
+                    }
+                },
+            "Users": {
+              "type": "array",
+              "$ref": "#/definitions/Users"
+            }
+          }
+        },
+        "Playlist": {
+            "required": ["userid", "title", "image"],
+            "properties": {
+              "userid": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "image": {
+                "type": "string"
+              },
+              "like": {
+                "type": "array",
+                "user_id": {
+                  "type": "string"
+                }
+              },
+              "Bookid": {
+                "type": "array",
+                "Bookid": {
+                  "type": "string"
+                }
+              }, 
+          "Playlists": {
+            "type": "array",
+            "$ref": "#/definitions/Playlist"
+          }
+        }
+      },
+      "Conversation": {
+        "properties": {
+          "dernierMessage": {
+            "type": "string"
+          },
+          "dateDernierMessage": {
+            "type": "Date"
+          },
+          "envoyeur": {
+            "type": "array",
+            "user_id": {
+              "type": "string"
+            }
+          },
+          "recepteur": {
+            "type": "array",
+            "user_id": {
+              "type": "string"
+            }
+          },
+      "Conversation": {
+        "type": "array",
+        "$ref": "#/definitions/Conversation"
+      }
+    }
+  },
+  "Message": {
+    "properties": {
+      "description": {
+        "type": "string"
+      },
+      "date": {
+        "type": "Date"
+      },
+      "conversationEnvoyeur": {
+        "type": "array",
+        "conversation_id": {
+          "type": "string"
+        }
+      },
+      "conversationRecepteur": {
+        "type": "array",
+        "covnersation_id": {
+          "type": "string"
+        }
+      },
+  "Message": {
+    "type": "array",
+    "$ref": "#/definitions/Message"
+  }
+}
+},
+        "userid":{
+            "required": ["id"],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+            "userid": {
+              "type": "array",
+              "$ref": "#/definitions/userid"
+            }
+          }
+        },
+        "Bookid":{
+            "required": ["id"],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+            "Bookid": {
+              "type": "array",
+              "$ref": "#/definitions/Bookid"
+            }
+          }
+        },
+        "playlistid":{
+            "required": ["id"],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+            "playlistid": {
+              "type": "array",
+              "$ref": "#/definitions/playlistid"
+            }
+          }
+        },
+        "chatid":{
+            "required": ["envoyeur"],
+              "properties": {
+                "envoyeur": {
+                  "type": "string"
+                },
+            "chatid": {
+              "type": "array",
+              "$ref": "#/definitions/chatid"
+            }
+          }
+        }
+
+      }
+    
+     
+        
+      }
+      
+        
+        
+      
+        
+      
+    
+        
+      
+  
+
+  
+
+  
